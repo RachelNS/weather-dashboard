@@ -1,0 +1,36 @@
+body {
+    background-color: #84609e;
+
+}
+
+.jumbotron-fluid {
+    background-color: black; 
+}
+
+.container {
+    background-color: black; 
+    color: #e3a70e;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+}
+
+.col-2 {
+    background-color: #e3a70e;
+    padding: 20px;
+}
+
+.btn {
+    padding: 10px;
+    margin: 5px;
+}
+
+.col-10 {
+    background-color: #782f2f;
+}
+
+.weather-day {
+    background-color: black;
+    text-align: center;
+}
+
