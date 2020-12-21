@@ -1,32 +1,53 @@
 body {
-    background-color: #84609e;
+    background-color: black;
 
 }
-
 .jumbotron-fluid {
     background-color: black; 
 }
 
-.container {
-    background-color: black; 
-    color: #e3a70e;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 50px;
+h1, h2, h3, button, #date-here {
+    font-family: 'Wallpoet', cursive;
+    color: white;
+}
+
+#city-stats {
+    margin-bottom: 10vh;
+}
+
+#future-weather {
+    margin-left: 5vw;
+}
+
+#title {
+    margin-bottom: 10vh;
+}
+
+p {
+    font-family: 'Goldman', cursive;
+    color: white;
+}
+
+.content {
+    border-radius: 25px;
 }
 
 .col-2 {
-    background-color: #e3a70e;
     padding: 20px;
 }
 
 .btn {
     padding: 10px;
     margin: 5px;
+    background-color: black;
+}
+
+.form-control {
+    margin-bottom: 5px;
 }
 
 .col-10 {
-    background-color: #782f2f;
+    background-color: black;
 }
 
 .weather-day {
