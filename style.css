@@ -6,7 +6,7 @@ body {
     background-color: black; 
 }
 
-h1, h2, h3, button, #date-here {
+h1, h2, h3, .different-button, #date-here {
     font-family: 'Wallpoet', cursive;
     color: white;
 }
@@ -36,7 +36,7 @@ p {
     padding: 20px;
 }
 
-.btn {
+.different-button {
     padding: 10px;
     margin: 5px;
     background-color: black;

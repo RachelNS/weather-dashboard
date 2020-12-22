@@ -3,7 +3,7 @@ var regularDate = $("#date-here");
 
 // Form Input
 var userCity = $("#city-here");
-var addCityButton = $("#add-city");
+var searchButton = $("#search");
 
 // Current city stats
 var currentCity = $("#current-city");
@@ -29,7 +29,7 @@ var currentHour = now.format("HH");
 // Date will be displayed at the top of the page
 regularDate.text((now.format("dddd, MMMM Do YYYY")));
 
-var oneCallQuery = "https://api.openweathermap.org/data/2.5/onecall?lat=27.2046&lon=77.4977&appid=a1eb40a0560eed9793dc1df3b1598bc4";
+
 
 // $.ajax({
 //   url: oneCallQuery,
@@ -38,20 +38,34 @@ var oneCallQuery = "https://api.openweathermap.org/data/2.5/onecall?lat=27.2046&
 //   console.log(response);
 // })
 
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+ userCity.val() +"&units=imperial&appid=a1eb40a0560eed9793dc1df3b1598bc4";
 
 
 // When user clicks "add city" button, data is generated for their city
-addCityButton.click(function(event){
+searchButton.click(function(event){
   event.preventDefault();
-  console.log(userCity.val());
+
+  // Default API URL
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+ userCity.val() +"&units=imperial&appid=a1eb40a0560eed9793dc1df3b1598bc4"
+
+  // Default API call
 $.ajax({
   url: queryURL,
   method: "GET"
 }).then(function (response) {
-  console.log(response);
+  // Latitude and longitude from default API
+  var longitude = response.coord.lon;
+  var latitude = response.coord.lat;
+
+  // OneCall API URL using latitude and longitude from previous call
+  var oneCallQuery = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitude+"&lon="+longitude+"&appid=a1eb40a0560eed9793dc1df3b1598bc4";
+
+  // OneCall API call
+  $.ajax({
+    url: oneCallQuery,
+    method: "GET"
+  }).then(function(response){
+    console.log(response)
+  })
 })
 })
-
-
 
