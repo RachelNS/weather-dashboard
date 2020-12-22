@@ -34,21 +34,18 @@
         <div class="row">
             <div class="col-2 content lcars-eggplant-bg">
                 <!-- Search bar and search results go here -->
-                <input class="form-control" type="text" placeholder="Search">
-                <button type="button" class="btn btn-secondary btn-lg">Here is a city</button>
-                <button type="button" class="btn btn-secondary btn-lg">Another city</button>
-                <button type="button" class="btn btn-secondary btn-lg">More city</button>
-                <button type="button" class="btn btn-secondary btn-lg">You guessed it</button>
+                <input class="form-control" id="city-here" type="text" placeholder="Search">
+                <button type="button" class="btn btn-secondary btn-lg" id="add-city">Add City</button>
             </div>
             <div class="col-10 content">
                 <div class="row">
                     <div class="col-12" id="city-stats">
                         <!-- Current city stats go here -->
-                        <h2>Seattle, WA</h2>
-                        <p>Temp: 100,000 degrees yo</p>
-                        <p>Humidity: Hell</p>
-                        <p>Wind Speed: Lots</p>
-                        <p>UV Index: High AF</p>
+                        <h2 id="current-city">Seattle, WA</h2>
+                        <p id="current-temp">Temp: 100,000 degrees yo</p>
+                        <p id="current-humidity">Humidity: Hell</p>
+                        <p id="current-wind">Wind Speed: Lots</p>
+                        <p id="current-uv">UV Index: High AF</p>
                     </div>
                 </div>
                 <!-- TNG bars go here if I can figure out how -->
@@ -63,7 +60,7 @@
                             <div class="col-1 lcars-bracket left"></div>
                             <div class="col-2">
                                 <h3 class="weather-day">Day 1</h3>
-                                <p>Temp: A number
+                                <p id="day-1-info">Temp: A number
                                     Humidity: A percentage
                                     Wind Speed: A number
                                     UV Index: Also a number
@@ -71,7 +68,7 @@
                             </div>
                             <div class="col-2">
                                 <h3 class="weather-day">Day 2</h3>
-                                <p>Temp: A number
+                                <p id="day-2-info">Temp: A number
                                     Humidity: A percentage
                                     Wind Speed: A number
                                     UV Index: Also a number
@@ -79,7 +76,7 @@
                             </div>
                             <div class="col-2">
                                 <h3 class="weather-day">Day 3</h3>
-                                <p>Temp: A number
+                                <p id="day-3-info">Temp: A number
                                     Humidity: A percentage
                                     Wind Speed: A number
                                     UV Index: Also a number
@@ -87,7 +84,7 @@
                             </div>
                             <div class="col-2">
                                 <h3 class="weather-day">Day 4</h3>
-                                <p>Temp: A number
+                                <p id="day-4-info">Temp: A number
                                     Humidity: A percentage
                                     Wind Speed: A number
                                     UV Index: Also a number
@@ -95,7 +92,7 @@
                             </div>
                             <div class="col-2">
                                 <h3 class="weather-day">Day 5</h3>
-                                <p>Temp: A number
+                                <p id="day-5-info">Temp: A number
                                     Humidity: A percentage
                                     Wind Speed: A number
                                     UV Index: Also a number
@@ -112,16 +109,10 @@
     </div>
 
 
-    <audio id="audDummy">
-        <script src="js/lcars_audio.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="script.js"></script>
 </body>
 
