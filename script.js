@@ -23,6 +23,9 @@ var currentHour = now.format("HH");
 var savedCities = [];
 var allCities = JSON.parse(localStorage.getItem("cities"));
 
+// Date will be displayed at the top of the page
+regularDate.text((now.format("dddd, MMMM Do YYYY")));
+
 // On page load, update city array with data from local storage
 function loadButtons(){
   if(allCities !== null){
@@ -34,29 +37,30 @@ function loadButtons(){
       newCityButton.text(allCities[i]);
       newCityButton.addClass("classic-button btn btn-secondary btn-lg lcars-cosmic-bg");
       cityButtons.append(newCityButton);
+
+      // When buttons are clicked, they call the citySearch function
+      newCityButton.click(function(event){
+        event.preventDefault;
+        userCity.val($(this).text());
+        citySearch();
+      }) ;
     }
 }
 
+// On page load, call the loadButtons function
 loadButtons();
 
-
-// Date will be displayed at the top of the page
-regularDate.text((now.format("dddd, MMMM Do YYYY")));
-
-// When the "add city" button is clicked, save city to local storage
+// Function to run API calls for both city buttons and searches
 addCity.click(function(event){
   event.preventDefault();
   savedCities.push(userCity.val());
-  console.log(savedCities);
 
   // User's searched cities are saved to local storage
   localStorage.setItem("cities", JSON.stringify(savedCities)); 
 })
 
 // When user clicks "search" button, data is generated for their city
-searchButton.click(function citySearch(event) {
-  event.preventDefault();
-
+function citySearch() {
   // Default API URL
   var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity.val() + "&units=imperial&appid=a1eb40a0560eed9793dc1df3b1598bc4"
 
@@ -77,7 +81,8 @@ searchButton.click(function citySearch(event) {
       url: oneCallQuery,
       method: "GET"
     }).then(function getForecast(response) {
-      console.log(response)
+
+      console.log(response);
       // Current weather in user's city
       currentCity.text(userCity.val());
       currentTemp.text("Current Temperature: " + response.current.temp + "°F");
@@ -90,8 +95,12 @@ searchButton.click(function citySearch(event) {
         // Creates new p tags to hold the city's 5-day forecast data
         var temp = $("<p>");
         var humidity = $("<p>");
+        var icon = $("<img>");
+        icon.attr("src", "http://openweathermap.org/img/wn/"+response.daily[i].weather.icon+".png");
+        icon.attr("alt", "Weather Icon");
         temp.text("Temperature: " + response.daily[i].temp.day + "°F");
         humidity.text("Humidity: " + response.daily[i].humidity + "%");
+        $("#5-day-forecast").append(icon);
         $("#5-day-forecast").append(temp);
         $("#5-day-forecast").append(humidity);
       }
@@ -99,16 +108,12 @@ searchButton.click(function citySearch(event) {
     })
 
   })
+}
+
+// When the "search" button is clicked, call the citySearch function
+searchButton.click(function(event){
+  event.preventDefault;
+  citySearch();
 })
 
-
-
-
-
-
-    // TODO: Empty array of user city names
-    // TODO: When user clicks "add city" button, push that city name to the empty city name array and save the array to local storage
-    // TODO: When the page loads, fetch the array from local storage and loop over it:
-        // TODO: For each iteration, create a button with that city's text
-        // TODO: Add an event listener to each button that calls the getForecast function for the selected city
 
