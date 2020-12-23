@@ -30,11 +30,9 @@ regularDate.text((now.format("dddd, MMMM Do YYYY")));
 function loadButtons(){
   if(allCities !== null){
     savedCities = allCities;
-    }
-
-    // At page load, the search field populates with the user's last saved city
     userCity.val(allCities[0]);
-
+    }
+    
     // Create a button for each saved city
     for(i=0; i<savedCities.length; i++){
       var newCityButton = $("<button>")
