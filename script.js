@@ -31,6 +31,10 @@ function loadButtons(){
   if(allCities !== null){
     savedCities = allCities;
     }
+
+    // At page load, the search field populates with the user's last saved city
+    userCity.val(allCities[0]);
+
     // Create a button for each saved city
     for(i=0; i<savedCities.length; i++){
       var newCityButton = $("<button>")
@@ -47,8 +51,9 @@ function loadButtons(){
     }
 }
 
-// On page load, call the loadButtons function
+// On page load, information from the user's last saved city persists
 loadButtons();
+citySearch();
 
 // Function to run API calls for both city buttons and searches
 addCity.click(function(event){
@@ -81,6 +86,7 @@ function citySearch() {
       url: oneCallQuery,
       method: "GET"
     }).then(function getForecast(response) {
+      $("#5-day-forecast").text("");
 
       console.log(response);
       // Current weather in user's city
@@ -96,7 +102,7 @@ function citySearch() {
         var temp = $("<p>");
         var humidity = $("<p>");
         var icon = $("<img>");
-        icon.attr("src", "http://openweathermap.org/img/wn/"+response.daily[i].weather.icon+".png");
+        icon.attr("src", "http://openweathermap.org/img/wn/"+response.daily[i].weather[0].icon+".png");
         icon.attr("alt", "Weather Icon");
         temp.text("Temperature: " + response.daily[i].temp.day + "°F");
         humidity.text("Humidity: " + response.daily[i].humidity + "%");

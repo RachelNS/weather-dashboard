@@ -38,6 +38,7 @@ p, .classic-button {
 
 #city-stats {
     border-radius: 25px;
+    margin-top: 5vh;
 }
 
 #decoration {
@@ -85,4 +86,6 @@ p, .classic-button {
     background-color: black;
     text-align: center;
 }
+
+
 
