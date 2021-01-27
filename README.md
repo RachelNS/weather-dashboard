@@ -3,7 +3,7 @@ Bootcamp homework - Week 3
 
 An app for displaying the current weather conditions and five-day forecast in any city a user wishes to search for.
 
-[Deployed on GitHub Pages](https://rachelns.github.io/weather-dashboard/).
+[Deployed on GitHub Pages](https://shame-wizards-apprentice.github.io/weather-dashboard/).
 
 ## Usage
 
